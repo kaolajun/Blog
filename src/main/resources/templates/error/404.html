@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="commons/fragments :: head(~{:: title})">
+    <meta charset="UTF-8">
+    <title>404</title>
+</head>
+<body>
+<nav th:replace="commons/fragments :: nav(0)"></nav>
+<br>
+<br>
+<br>
+<br>
+    <div class="m-container-small m-padded-tb-massive">
+        <div class="ui error message m-padded-tb-huge">
+            <div class="ui container">
+                <h2>404</h2>
+                <p>访问的资源不存在啊啊啊啊啊！</p>
+            </div>
+        </div>
+    </div>
+
+<footer th:replace="commons/fragments :: footer">
+
+</footer>
+
+<th:block th:replace="commons/fragments :: script">
+
+</th:block>
+</body>
+</html>

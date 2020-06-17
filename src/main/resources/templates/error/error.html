@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="commons/fragments :: head(~{:: title})">
+    <meta charset="UTF-8">
+    <title>404</title>
+</head>
+<body>
+<nav th:replace="commons/fragments :: nav(0)"></nav>
+<br>
+<br>
+<br>
+<br>
+
+<!--查看网页源代码看异常信息-->
+<div>
+    <div th:utext="'&lt;!--'" th:remove="tag"></div>
+    <div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>
+    <div th:utext="'Exception message : ' + ${exception.message}" th:remove="tag"></div>
+    <ul th:remove="tag">
+        <li th:each="st : ${exception.stackTrace}" th:remove="tag"><span th:utext="${st}" th:remove="tag"></span></li>
+    </ul>
+    <div th:utext="'--&gt;'" th:remove="tag"></div>
+</div>
+
+<div class="m-container-small m-padded-tb-massive">
+    <div class="ui error message m-padded-tb-huge">
+        <div class="ui container">
+            <h2>错误</h2>
+            <p>错误啦啊啊啊啊啊！</p>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="commons/fragments :: footer">
+
+</footer>
+
+<th:block th:replace="commons/fragments :: script">
+
+</th:block>
+</body>
+</html>

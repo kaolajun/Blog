@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/fragments :: head(~{:: title})">
+    <meta charset="UTF-8">
+    <title>后台首页</title>
+</head>
+<body>
+    <!--导航-->
+    <nav th:replace="admin/fragments :: nav(1)" class="ui m-bg inverted transparent attached segment m-padded-tb-mini m-shadow-small animated fadeInDown" style="z-index: 999 !important;">
+        <div class="ui container">
+            <div class="ui secondary stackable menu"> <!--stackable可堆叠的，用于移动端响应-->
+                <a href="/" class="item">
+                    <img class="ui image" src="../static/images/orange.png" th:src="@{/images/orange.png}" style="width: 50px;height: 60px;padding-top: 4px">
+                    <h1 class="ui header item m-padded-mini m-margin-right-large" style="color: #ffA500">YJ_Orange</h1>
+                </a>
+                <a href="/" class="m-orange m-item item m-mobile-hide m-text-thick"><i class="home link icon orange"></i>首页</a>
+                <a  href="#" class="m-orange m-item item m-mobile-hide m-text-thick"><i class="tags link icon orange"></i>标签</a>
+                <a  href="#" class="m-orange m-item item m-mobile-hide m-text-thick" ><i class="idea link icon orange"></i>分类</a>
+                <div class="m-item right item m-mobile-hide">
+                    <div class="ui icon inverted transparent input">
+                        <input type="text" style="color: orange !important;" placeholder="Search...">
+                        <i class="search link icon m-orange"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ui menu toggle orange icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+
+    <div th:replace="admin/fragments :: menu(0)"></div>
+
+    <!--中间内容-->
+    <div class="m-container-small m-padded-tb-big">
+        <div class="ui container">
+            <div class="ui success message large">
+                <h2>Hi!</h2>
+                <p>欢迎登录</p>
+            </div>
+
+            <img src="/static/images/orange.png" alt="" class="ui rounded bordered fluid image">
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <!--底部footer-->
+    <footer th:replace="admin/fragments :: footer">
+
+    </footer>
+
+    <th:block th:replace="admin/fragments :: script">
+
+    </th:block>
+
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+    $('.ui.dropdown')
+        .dropdown()
+    ;
+</script>
+</body>
+</html>

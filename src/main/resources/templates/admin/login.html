@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/fragments :: head(~{:: title})">
+    <meta charset="UTF-8">
+    <!--移动端浏览-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>登录页</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+</head>
+<body>
+
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<div class="m-container-small m-padded-tb-massive" style="max-width: 30em !important;">
+    <div class="ui container">
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <h2 class="ui orange image header">
+                    <img src="assets/images/logo.png" th:src="@{/images/orange.png}" class="image">
+                    <div class="content">
+                        登录管理后台
+                    </div>
+                </h2>
+                <form class="ui large form" method="post" action="#" th:action="@{/admin/login}">
+                    <div class="ui segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="username" placeholder="用户名/邮箱">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" placeholder="密码">
+                            </div>
+                        </div>
+                        <button class="ui fluid large orange submit button">登               录</button>
+                    </div>
+                    <!--用户名或者密码为空，script描述-->
+                    <div class="ui mini error message"></div>
+                    <!--信息来自重定向传递的attribute-->
+                    <div class="ui mini navigate message" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:replace="admin/fragments :: script">
+
+</th:block>
+<script>
+    $('.ui.form').form({
+        fields : {
+            username : {
+                identifier : 'username',
+                rules : [{
+                    type : 'empty',
+                    prompt : '请输入用户名'
+                }]
+            },
+            password : {
+                identifier : 'password',
+                rules : [{
+                    type : 'empty',
+                    prompt : '请输入密码'
+                }]
+            }
+        }
+    });
+</script>
+</body>
+</html>

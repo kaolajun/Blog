@@ -1,0 +1,13 @@
+#指定配置文件，选择是开发环境还是生产环境
+spring:
+  thymeleaf:
+    cache: false
+#支持自定义请求方式，要把此处设置为true不然put/delete请求会被当成post处理
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  profiles:
+    active: develop
+
+

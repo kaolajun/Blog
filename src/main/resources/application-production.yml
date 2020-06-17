@@ -1,0 +1,22 @@
+#生产环境配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://39.97.179.60:3306/blog?useUnicode=true&characterEncoding=utf-8
+    username: blog
+    password: xxwdbb58
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+#日志级别
+logging:
+  level:
+    root: warn
+    com.yanjin: info
+  file:
+    name: log/blog-pro.log
+
+server:
+  port: 8088
